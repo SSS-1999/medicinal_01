@@ -149,6 +149,37 @@ public class DrugDao {
     }
 
 
+    //根据drugId删除数据
+    public int deleteDrugById(String drugId){
+        int row=0;
+        //获取数据库连接
+        Connection Dconn=DBUtil.getConn();
+        //编写sql
+        String sql="delete  from tb_drug where drugId=?";
+
+        try {
+            // 创建 PreparedStatement对象
+            PreparedStatement Dps= Dconn.prepareStatement(sql);
+            //给问号赋值
+            Dps.setInt(1,Integer.parseInt(drugId));
+            //执行
+            row=Dps.executeUpdate();
+
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                Dconn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return  row;
+    }
+
 
 
 }

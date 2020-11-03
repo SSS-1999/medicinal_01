@@ -137,6 +137,11 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+
+
+
+
+
             <table class="table table-striped table-bordered table-hover table-condensed">
                 <h2 style="text-align: center">个人信息一览表</h2>
                 <tr>
@@ -226,7 +231,13 @@
                 <td>${Di.drugUser}</td>
                 <!--<td><a href="/deleteDrugBydrugId?drugId=${Di.drugId}">删除</a>|<a  onclick="findDrugBydrugId('${Di.drugId}')" data-toggle="modal" data-target="#Dmymodel">修改</a></td>
                     -->
-                <td><a href="#">删除</a>|<a href="#"></a><a onclick="findDrugById('${Di.drugId}')" data-toggle="modal" data-target="#medimodel">修改</a> </td>
+               <!-- <td><a href="#">删除</a>|<a href="#"></a><a onclick="findDrugById('${Di.drugId}')" data-toggle="modal" data-target="#medimodel">修改</a> </td>
+                    -->
+                <td><a href="/deleteDrugById?drugId=${Di.drugId}">删除</a>|<a  onclick="findUserById('${i.id}')" data-toggle="modal" data-target="#mymodel">修改</a></td>
+
+
+
+
             </tr>
         </c:forEach>
 
