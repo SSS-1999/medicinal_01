@@ -4,6 +4,7 @@ package dao;
 import pojo.Drug;
 
 
+import pojo.User;
 import util.DBUtil;
 
 import java.sql.Connection;
@@ -179,6 +180,91 @@ public class DrugDao {
 
         return  row;
     }
+
+
+
+
+
+    //根据id查找当前药品
+    public Drug findDrugInfo(String drugId){
+        Drug drug=null;
+        //获取数据连接
+        Connection Dconn=DBUtil.getConn();
+        //编写sql
+        String sql="select * from tb_drug where drugId=?";
+        //创建PreparedStatement 对象
+        try {
+            PreparedStatement Dps=Dconn.prepareStatement(sql);
+            //给问号赋值
+            Dps.setInt(1,Integer.parseInt(drugId));
+            //执行
+            ResultSet Dr=Dps.executeQuery();
+            //遍历结果集
+
+
+
+
+            if(Dr.next()){
+                Integer drug_id= Dr.getInt("drugId");
+                String drug_name=Dr.getString("drugName");
+                String drug_price=Dr.getString("drugPrice");
+                String drug_user=Dr.getString("drugUser");
+                //将取出的数据封装到对象
+                drug=new Drug();
+                drug.setDrugId(drug_id);
+                drug.setDrugName(drug_name);
+                drug.setDrugPrice(drug_price);
+                drug.setDrugUser(drug_user);
+
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                Dconn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return  drug;
+    }
+
+
+    //根据id执行药品信息的修改
+    public int  toUpdateDrugInfo(String drugid,String drugname,String drugprice,String druguser){
+        //获取连接对象
+        Connection Dconn = DBUtil.getConn();
+        int row=0;
+        //编写sql
+
+
+        String sql="update tb_drug set drugPrice=?,drugUser=? where drugId=?";
+        //得到PreparedStatement对象
+        try {
+            PreparedStatement Dps= Dconn.prepareStatement(sql);
+
+            //给问号赋值
+            Dps.setString(1,drugprice);
+            Dps.setString(2,druguser);
+            Dps.setInt(3,Integer.parseInt(drugid));
+            //执行
+            row=Dps.executeUpdate();
+            //返回受影响行数
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                Dconn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return  row;
+    }
+
 
 
 

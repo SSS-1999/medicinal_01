@@ -54,6 +54,50 @@
 
 
 
+    <!-- 修改药品信息模态框-->
+    <div class="modal fade" id="drugmodel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="DexampleModalLabel">修改药品信息</h4>
+                </div>
+                <div class="modal-body">
+                    <form >
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label">药品ID</label>
+                            <input type="text" class="form-control" readonly="readonly" id="recipient-drugname">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label">药品名称</label>
+                            <input type="text" class="form-control" readonly="readonly" id="drug-name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label">药品价格</label>
+                            <input type="text" class="form-control" id="drug-price">
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label">药品适用人群</label>
+                            <input type="text" class="form-control" id="drug-user">
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary"  id="btn4">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <!-- 添加用户信息的模态框-->
     <div class="modal fade" id="my" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
         <div class="modal-dialog" role="document">
@@ -233,7 +277,8 @@
                     -->
                <!-- <td><a href="#">删除</a>|<a href="#"></a><a onclick="findDrugById('${Di.drugId}')" data-toggle="modal" data-target="#medimodel">修改</a> </td>
                     -->
-                <td><a href="/deleteDrugById?drugId=${Di.drugId}">删除</a>|<a  onclick="findUserById('${i.id}')" data-toggle="modal" data-target="#mymodel">修改</a></td>
+                <td><a href="/deleteDrugById?drugId=${Di.drugId}">删除</a>|<a  onclick="findDrugById('${Di.drugId}')" data-toggle="modal" data-target="#drugmodel">修改</a></td>
+
 
 
 
@@ -267,13 +312,32 @@
           $("#pwd").val(data.password);
           $("#tel").val(data.tel);
 
+        });
 
+    }
+
+
+
+    function findDrugById(drug_id){
+        //href="/findUserForUpdateUserById?id=${i.id}"
+
+        //alert(id);
+
+        $.get("/findDrugForUpdateDrugById","drugId="+drug_id,function(data){
+            //返回json数据格式
+            //  {"name":"ludiankai","id":1,"age":20,"address":"江湖"}
+            //data="{"id":19,"name":"ludinaki","password":"123","tel":"15365760776"}"
+            $("#recipient-drugname").val(data.drugId);
+            $("#drug-name").val(data.drugName);
+            $("#drug-price").val(data.drugPrice);
+            $("#drug-user").val(data.drugUser);
 
         });
 
-
-
     }
+
+
+
 
     //给确定按钮添加点击事件
     $("#btn1").click(function(){
@@ -284,6 +348,19 @@
         var tel=$("#tel").val();//获取电话
         //这个是url传参数   多个参数使用&符号连接起来
         location.href="/toUpdateUserInfo?id="+id+"&name="+name+"&password="+pwd+"&tel="+tel;
+    });
+
+
+
+    //给确定按钮添加点击事件
+    $("#btn4").click(function(){
+        //获取表单数据
+        var drugid=$("#recipient-drugname").val();//获取id值
+        var drugname=$("#drug-name").val();//获取name值
+        var drugprice=$("#drug-price").val();//获取密码
+        var druguser=$("#drug-user").val();//获取电话
+        //这个是url传参数   多个参数使用&符号连接起来
+        location.href="/toUpdateDrugInfo?drugId="+drugid+"&drugName="+drugname+"&drugPrice="+drugprice+"&drugUser="+druguser;
     });
 
 
