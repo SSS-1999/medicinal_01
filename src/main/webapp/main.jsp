@@ -11,7 +11,10 @@
 
 </head>
 <body>
-    <!-- 作为body的直接子元素-->
+
+
+<!-- 作为body的直接子元素-->
+    <!-- 修改用户信息模态框-->
 <div class="modal fade" id="mymodel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -19,6 +22,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="exampleModalLabel">修改用户信息</h4>
             </div>
+
             <div class="modal-body">
                 <form >
                     <div class="form-group">
@@ -36,14 +40,13 @@
                         <input type="text" class="form-control" id="pwd">
                     </div>
 
-
                     <div class="form-group">
                         <label for="recipient-name" class="control-label">电话</label>
                         <input type="text" class="form-control" id="tel">
                     </div>
-
                 </form>
             </div>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                 <button type="button" class="btn btn-primary"  id="btn1">确定</button>
@@ -62,6 +65,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="DexampleModalLabel">修改药品信息</h4>
                 </div>
+
                 <div class="modal-body">
                     <form >
                         <div class="form-group">
@@ -79,15 +83,13 @@
                             <input type="text" class="form-control" id="drug-price">
                         </div>
 
-
-
                         <div class="form-group">
                             <label for="recipient-name" class="control-label">药品适用人群</label>
                             <input type="text" class="form-control" id="drug-user">
                         </div>
-
                     </form>
                 </div>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                     <button type="button" class="btn btn-primary"  id="btn4">确定</button>
@@ -106,9 +108,9 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" >添加用户信息</h4>
                 </div>
+
                 <div class="modal-body">
                     <form action="/addUserInfo" method="post">
-
                         <div class="form-group">
                             <label for="recipient-name" class="control-label">用户名</label>
                             <input type="text" name="username" class="form-control">
@@ -118,7 +120,6 @@
                             <label for="recipient-name" class="control-label">密码</label>
                             <input type="password" class="form-control" name="pwd">
                         </div>
-
 
                         <div class="form-group">
                             <label for="recipient-name" class="control-label">电话</label>
@@ -132,7 +133,6 @@
 
                     </form>
                 </div>
-
             </div>
         </div>
     </div>
@@ -153,12 +153,13 @@
            <%-- <a class="navbar-brand" href="#">药品类型</a>--%>
         </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!--主页面-->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li >
                     <a href="/findAllDrugs">药品信息</a>
                 </li>
+
                 <li><a href="#">器材归类</a></li>
                 <li><a href="/findAllUsers">查询用户</a></li>
                 <li><a href="#"  data-toggle="modal" data-target="#my">添加用户</a></li>
@@ -322,7 +323,7 @@
         //href="/findUserForUpdateUserById?id=${i.id}"
 
         //alert(id);
-
+        //发送ajax请求
         $.get("/findDrugForUpdateDrugById","drugId="+drug_id,function(data){
             //返回json数据格式
             //  {"name":"ludiankai","id":1,"age":20,"address":"江湖"}
@@ -338,7 +339,7 @@
 
 
 
-
+    //在发送ajax请求之前，获取用户名和密码
     //给确定按钮添加点击事件
     $("#btn1").click(function(){
         //获取表单数据

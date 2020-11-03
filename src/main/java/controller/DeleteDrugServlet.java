@@ -21,7 +21,7 @@ public class DeleteDrugServlet extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //获取参数值
         String drugId =req.getParameter("drugId");
-        //根据id删除用户
+        //根据drugId删除用户
         DrugDao drugDao=new DrugDao();
         int row=drugDao.deleteDrugById(drugId);
         //对row判断

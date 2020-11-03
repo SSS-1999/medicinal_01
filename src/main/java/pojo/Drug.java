@@ -14,9 +14,6 @@ public class Drug {
     private  String drugUser;
 
 
-
-
-
     public Integer getDrugId() {
         return drugId;
     }

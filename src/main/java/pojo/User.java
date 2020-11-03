@@ -5,6 +5,7 @@ package pojo;
  * tb_user 表字段可以写成这个实体类的成员变量
  */
 public class User {
+
     private Integer id;
     private String name;
     private String password;

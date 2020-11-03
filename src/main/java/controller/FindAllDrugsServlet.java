@@ -19,8 +19,8 @@ public class FindAllDrugsServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //去数据库查询tb_drug表所有数据
 
+        //去数据库查询tb_drug表所有数据
         DrugDao Ddao=new DrugDao();
         List<Drug> Dlist = Ddao.findAllDrugInfo();
         for (Drug drug:Dlist){

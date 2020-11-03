@@ -6,22 +6,23 @@
     <script src="resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <script src="resources/bootstrap-3.3.7-dist/js/jquery-1.9.1.min.js"></script>
     <link rel="stylesheet" href="resources/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+
     <style>
         body{
               background-image: url("resources/image/bg.jpg");
           }
+
         #div1{
             border:  1px solid #cccccc;
             margin:  100px auto;
             width: 35%;
           background-color: rgba(255,255,255,0.3);
 
-
-
         }
     </style>
 
 </head>
+
 <body>
 <div id="div1">
 <form class="form-horizontal" action="/toReg"  method="post" >
@@ -46,12 +47,14 @@
         </div>
     </div>
 </form>
-
 </div>
 </body>
+
 <script>
+
     //给用户名输入框绑定失去焦点事件
     $("#d1").blur(function(){
+
         //获取用户名输入框的值
         var name=$("#d1").val();
         //发ajax 请求

@@ -5,10 +5,12 @@
     <script src="resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <script src="resources/bootstrap-3.3.7-dist/js/jquery-1.9.1.min.js"></script>
     <link rel="stylesheet" href="resources/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+
     <style>
         body{
               background-image: url("resources/image/bg.jpg");
           }
+
         #div1{
             border:  1px solid #cccccc;
             margin:  100px auto;
@@ -16,8 +18,12 @@
           background-color: rgba(255,255,255,0.3);
 
         }
+
     </style>
+
 </head>
+
+
 <body>
 <div id="div1">
 <form class="form-horizontal"   method="post" >
@@ -28,6 +34,8 @@
             <input type="text" name="username" style="width: 100%"  class="form-control" id="d1" placeholder="请输入用户名...">
         </div>
     </div>
+
+
     <div class="form-group">
         <label for="inputPassword3" class="col-sm-2 control-label">密码：</label>
         <div class="col-sm-10">
@@ -40,13 +48,18 @@
             <button type="button" id="btn" class="btn btn-primary" style="width: 22%;margin-left: 150px">登 录</button>
         </div>
     </div>
+
 </form>
 
 </div>
 </body>
+
+
 <script>
+
     //给登录按钮添加点击事件
    $("#btn").click(function(){
+
        //在发送ajax请求之前，获取用户名和密码
        var name=$("#d1").val();
        var password=$("#inputPassword3").val();
@@ -58,15 +71,18 @@
            alert("密码不能为空!");
            return;
        }
+
        //发送ajax请求   name=ldk&password=123&age=20
        $.post("/toLogin","name="+name+"&"+"password="+password,function(data){
                     if(data==202){
                         alert("该用户不存在");
+
                         //跳到注册页面
                         location.href="/register.jsp";
                     }
                     if(data==200){
                         alert("登录成功");
+
                         //成功跳到主页
                         location.href="/toMain";
                     }
