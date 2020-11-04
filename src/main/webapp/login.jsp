@@ -9,6 +9,8 @@
     <style>
         body{
               background-image: url("resources/image/bg.jpg");
+
+
           }
 
         #div1{
@@ -16,6 +18,7 @@
             margin:  100px auto;
             width: 35%;
           background-color: rgba(255,255,255,0.3);
+
 
         }
 

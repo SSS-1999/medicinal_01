@@ -57,6 +57,7 @@
 
 
 
+
     <!-- 修改药品信息模态框-->
     <div class="modal fade" id="drugmodel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
         <div class="modal-dialog" role="document">
@@ -97,6 +98,7 @@
             </div>
         </div>
     </div>
+
 
 
 
@@ -216,7 +218,7 @@
 
 
 
-    <!-- 添加药品信息的模态框-->
+   <!-- 添加药品信息的模态框-->
     <div class="modal fade" id="medi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -255,7 +257,9 @@
         </div>
     </div>
 
-    <table class="table table-striped table-bordered table-hover table-condensed">
+
+
+  <table class="table table-striped table-bordered table-hover table-condensed">
         <h2 style="text-align: center">药品信息一览表</h2>
         <tr>
             <td>药品编号</td>
@@ -318,8 +322,9 @@
 
 
 
+
     function findDrugById(drug_id){
-        //href="/findUserForUpdateUserById?id=${i.id}"
+
 
         //alert(id);
         //发送ajax请求
@@ -338,6 +343,7 @@
 
 
 
+
     //在发送ajax请求之前，获取用户名和密码
     //给确定按钮添加点击事件
     $("#btn1").click(function(){
@@ -351,7 +357,7 @@
     });
 
 
-    //Jquery
+  //Jquery
     //给确定按钮添加点击事件
     $("#btn4").click(function(){
         //获取表单数据
