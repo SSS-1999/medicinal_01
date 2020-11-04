@@ -153,6 +153,7 @@
            <%-- <a class="navbar-brand" href="#">药品类型</a>--%>
         </div>
 
+
         <!--主页面-->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
@@ -184,9 +185,7 @@
 </nav>
 
 
-
-
-
+            <!--个人信息一览表-->
             <table class="table table-striped table-bordered table-hover table-condensed">
                 <h2 style="text-align: center">个人信息一览表</h2>
                 <tr>
@@ -352,7 +351,7 @@
     });
 
 
-
+    //Jquery
     //给确定按钮添加点击事件
     $("#btn4").click(function(){
         //获取表单数据
